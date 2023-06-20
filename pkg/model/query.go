@@ -11,3 +11,15 @@ type QueryGetTransactions struct {
 	Customer  string `form:"customer"`
 	QueryPagination
 }
+
+type MetodologiFilter struct {
+	StartDate string `form:"start_date"`
+	EndDate   string `form:"end_date"`
+	Material  string `form:"material"`
+}
+
+type ResponseMetodologi struct {
+	Month       string  `form:"month"`
+	TotalQty    float64 `form:"total_qty"`
+	Predictions float64 `form:"predictions"`
+}

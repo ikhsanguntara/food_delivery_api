@@ -92,3 +92,8 @@ func convertMonth(strMonth string) string {
 	date, _ := time.Parse("1", strMonth)
 	return date.Month().String()
 }
+
+func (s *Storage) ReadReportMetodologi(qp model.MetodologiFilter) ([]model.ResponseMetodologi, error) {
+
+	return []model.ResponseMetodologi{}, nil
+}

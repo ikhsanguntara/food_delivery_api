@@ -56,6 +56,7 @@ type RepositoryMySQL interface {
 	ReadTransactionLine(model.TransactionLine) (model.TransactionLine, error)
 	UpdateTransactionLine(model.TransactionLine) (model.TransactionLine, error)
 	DeleteTransactionLine(model.TransactionLine) (model.TransactionLine, error)
+	TotalData(model.MetodologiFilter) ([]model.ResponseMetodologi, error)
 
 	// Reports
 	ReadReportDashboard() (model.Dashboard, error)
@@ -84,9 +85,9 @@ func NewStorage(c cfg.MySQL, goEnv string) (*Storage, error) {
 		return s, err
 	}
 
-	if err = autoMigrateDB(s); err != nil {
-		return nil, err
-	}
+	// if err = autoMigrateDB(s); err != nil {
+	// 	return nil, err
+	// }
 
 	if err = seedDB(s); err != nil {
 		return nil, err
