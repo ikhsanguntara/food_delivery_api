@@ -1,6 +1,7 @@
 package rest
 
 import (
+	"food_delivery_api/pkg/middleware"
 	"food_delivery_api/pkg/service"
 	"net/http"
 	"time"
@@ -20,7 +21,7 @@ func Handler(s service.Service) *gin.Engine {
 
 	// Protected API
 	v1 := r.Group("/api/v1")
-	// v1.Use(middleware.JWT())
+	v1.Use(middleware.JWT())
 	{
 		// Users
 		v1.POST("/users", addUser(s))
